@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 3일차 1번 파일</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./js/bootstrap.bundle.js"></script>
+
+  <script>
+    //  제어문 : 프로그램의 흐름을 사용자가 변경할 수 있도록하는 명령어, 제어문의 종류로 조건문, 반복문 이 있다
+    //  조건문 : 조건식의 결과에 따라서 실행되는 코드 블럭을 변경하는 명령어, if, switch 이 있음
+    //  반복문 : 조건식의 결과에 따라서 특정 코드블럭을 반복 실행하는 명령어, for, while 이 있음
+
+    //  if문 : 가장 많이 사용되는 조건문, 단순 if문, if ~ else문, else if문의 3가지 형태가 존재함
+    //  단순 if : 조건식의 결과가 true일 경우 코드 불록의 내용을 '추가로 실행하는 형태'(''이 부분이 중요!)
+    //  조건식의 결과가 false일 경우 기존의 소스코드와 동일함
+    //  사용법 :
+    //  if (조건식) {
+    //      실행할 소스 코드
+    //  }
+
+    //  if ~ else : 조건식의 결과에 따라서 서로 다른 코드 불록을 실행하는 형태
+    //  결과가 true이면 if문 바로 아래에 있는 코드 블록을 실행
+    //  결과가 false이면 else문 아래에 있는 코드 블록을 실행
+    //  반드시 둘 중 하나의 코드 블록을 실행하는 형태
+    //  사용법 :
+    //  if (조건식) {
+    //      true일 경우 실행할 소스코드
+    //  }
+    //  else {
+    //      false일 경우 실행할 소스코드
+    //  }
+
+    //  else if : 단순 if, if ~ else와 달리 조건식이 여러개 존재하는 형태의 if문
+    //  위에서 아래로 조건식의 결과가 true인지 false인지를 판단하여 false 일 경우 다음 조건식으로 넘어감
+    //  여러개의 조건식 중 결과가 true인 조건식을 만나면 해당 코드 블록을 실행하고 전체 else if문을 종료함(true만 실행된 다음 아래는 실행 안한다는 뜻)
+    //  모든 조건식에 대해서 결과가 false일 경우 else 문의 코드 블록을 실행함
+    //  else if문은 if에서 else 까지가 하나의 if문임
+    //  조건식의 순서가 반드시 차례대로 사용되야 함 (차례대로 사용하지 않을 경우 컴파일 오류는 발생하지 않지만 논리적인 오류가 발생함)
+    //  사용법 :
+    //  if (조건식1) {
+    //      조건식1의 결과가 true일 경우 실행할 소스코드
+    //  }
+    //  else if (조건식 2) {
+    //      조건식2의 결과가 false일 경우 실행할 소스코드
+    //  }
+    //  else if (조건식 3) {
+    //      조건식3의 결과가 false일 경우 실행할 소스코드
+    //  }
+    //  ...
+    //  else {
+    //      모든 조건의 결과가 false일 경우 실행할 소스코드
+    //  }
+
+    console.log('\n-------단순 if 사용하기-------\n');
+
+    let money = prompt('소지 금액을 입력하세요', '10000');
+    money = Number(money);
+
+    console.log('중국집에 갑니다.');
+    console.log('자장면을 주문합니다.');
+
+    if (money >= 12000) {
+      console.log('군만두를 추가 주문 합니다.');
+    }
+
+    console.log('주문한 음식을 맛있게 먹습니다.');
+
+    let userNumber = prompt('숫자를 입력하세요');
+    console.log('입력한 숫자는 ' + userNumber + '입니다.');
+
+    //  산술연산자가 비교연산자보다 연산순서가 더 빠르다
+    //  3을 나눴을때 나머지를 구하는 연산자(%)로 3의 배수를 찾는 식을 만든것
+    if (userNumber %3 == 0) {
+      console.log('입력한 숫자' + userNumber + '는 3의 배수 입니다.');
+    }
+
+    //  if의 ()안에 true들어가면 무조건 실행, false 들어가면 무조건 미실행
+    if (true) {
+      console.log('결과가 true이면 출력');
+    }
+
+    console.log('\n-------if ~ else 사용하기-------\n');
+
+    userNumber = prompt('숫자를 입력하세요');
+
+    if (userNumber %3 ==0) {
+      console.log('3의 배수입니다');
+    }
+    else {
+      console.log('3의 배수가 아닙니다.');
+    }
+    console.log('\n-------else if 사용하기-------\n');
+
+    //  Number() : 문자열('', ""로 감싸여 있는 것) 타입의 숫자 데이터를 숫자형 데이터로 변환하는 함수, 이게 없으면 85가 문자 취급이기 때문에 연산자를 쓰면 '85' + 100 경우 85100 이런식으로 출력된다
+    //  prompt는 입력 값을 전부 문자로 받기 때문에 숫자로 바꾸는 과정(Number 함수)이 필요함
+    let score = prompt('점수를 입력해주세요', '85');
+    //  입력받은 문자열 타입의 숫자 데이터를 진짜 숫자형 데이터로 변환하여 다시 변수 score로 저장
+    score = Number(score);
+
+    //  중괄호 끝에는 세미콜론 안붙이지만 소괄호 끝에는 세미콜론 붙임. 한줄이 끝날때 마다 붙인다고 보면 됨
+    if (score > 90) {
+      console.log('당신의 점수는 ' + score + '점이고, 등급은 A입니다.');
+    }
+    else if (score > 80) {
+      console.log('당신의 점수는 ' + score + '점이고, 등급은 B입니다.');
+    }
+    else if (score > 70) {
+      console.log('당신의 점수는 ' + score + '점이고, 등급은 C입니다.');
+    }
+    else if (score > 60) {
+      console.log('당신의 점수는 ' + score + '점이고, 등급은 D입니다.');
+    }
+    else {
+      console.log('당신의 점수는 ' + score + '점이고, 등급은 F입니다.');
+    }
+
+
+    console.log('\n-------문제 1-------\n');
+    //  문제 1) 국어, 영어, 수학의 3개 과목에 대해서 점수를 이력받고, 평균 점수에 따라서 등급을 표시하는 프로그램을 작성하세요
+    //  * A = 90 이상, B = 80 이상, C = 70 이상, D = 60 이상, F = 60 미만
+    //  ** 출력 형태 : '당신의 평균 점수는 xx점이고, 등급은 x 입니다.'
+    //  *** 국어, 영어, 수학에 대한 변수 선언 및 사용
+
+
+    let kScore = prompt('국어 점수를 입력해주세요', '80');
+    kScore = Number(kScore);
+
+    let eScore = prompt('영어 점수를 입력해주세요', '60');
+    eScore = Number(eScore);
+
+    let mScore = prompt('수학 점수를 입력해주세요', '90');
+    mScore = Number(mScore);
+
+    let average = (kScore + eScore + mScore)/3
+
+    if (average >= 90) {
+      console.log('당신의 평균 점수는 ' + average + '점이고, 등급은 A입니다.');
+    }
+    else if (average >= 80) {
+      console.log('당신의 평균 점수는 ' + average + '점이고, 등급은 B입니다.');
+    }
+    else if (average >= 70) {
+      console.log('당신의 평균 점수는 ' + average + '점이고, 등급은 C입니다.');
+    }
+    else if (average >= 60) {
+      console.log('당신의 평균 점수는 ' + average + '점이고, 등급은 D입니다.');
+    }
+    else {
+      console.log('당신의 평균 점수는 ' + average + '점이고, 등급은 F입니다.');
+    }
+
+    console.log('\n-------문제 2-------\n');
+    //  문제 2) 사용자 입력을 통해서 1 ~ 100까지의 숫자를 입력받고, 해당 숫자가 2의 배수이면 '2의 배수 입니다.'를 출력, 3의 배수이면 '3의 배수 입니다.', 둘 다 아닐 경우 '2의 배수도 3의 배수도 아닙니다.'를 출력하는 프로그램을 작성하세요
+    //  * 2의 배수이면서 3의 배수인 경우는 '2의 배수입니다.'로 출력 (중첩 if문을 배우지 않았기 때문)
+
+
+    let justNumber = prompt('1 ~ 100까지의 숫자를 입력해 주세요.');
+    justNumber = Number(justNumber);
+
+    if (justNumber %2 == 0) {
+        console.log('2의 배수입니다.');
+    }
+    else if (justNumber %3 == 0) {
+        console.log('3의 배수입니다.');
+    }
+    else {
+        console.log('2의 배수도 3의 배수도 아닙니다.');
+    }
+    //  ctrl alt L 누르면 자동 줄 맞춤 기능 있다
+
+    //  중첩 if 문 : if문 안에 if문이 존재하는 if문
+    //  사용법 :
+    //  if (조건식1) {
+    //      if (조건식2) {
+    //          조건식 1 과 조건식 2가 모두 true일 경우 실행할 소스 코드
+    //      }
+    //      else {
+    //          조건식 1은 true이고, 조건식 2는 false일 경우 실행할 소스코드
+    //      }
+    //  }
+
+    //  중첩 if문
+    if (number > 0) {
+        if (number <= 100){
+            console.log(number + '는 1 ~ 100까지의 숫자 입니다.');
+        }
+        else {
+            console.log(number + '는 1보다는 크지만 100보다 작은 숫자는 아닙니다.');
+        }
+
+    }
+    else {
+        console.log(number + '는 0보다 보다 작은 숫자입니다.');
+    }
+
+    //  %% / || AND연산자를 사용하여 한번에 2가지의 조건을 확인하기
+    if (number > 0 && number <= 100) {
+        console.log(number + '는 1 ~ 100까지의 숫자 입니다.');
+    }
+    else if (number > 0) {
+        console.log(number + '는 1보다는 크지만 100보다 작은 숫자는 아닙니다.');
+    }
+    else {
+        console.log(number + '는 0보다 보다 작은 숫자입니다.');
+    }
+
+
+
+
+    console.log('\n-------문제 3-------\n');
+    //  문제 3) 위의(문제 2)) 평균 점수 및 등급을 출력하는 프로그램을 수정하여 중첩 if문으로 A+ ~ F까지 출력하는 프로그램을 작성하세요
+    //  * A+ = 96이상, A = 90이상, B+ =86 이상, B = 80이상, C+ = 75이상, C = 70이상, D = 60이상, F= 60미만
+    //  else if 문과 if ~ else문을 조합하여 작성
+    //  국어, 영어, 수학 3개 과목의 점수를 각각 입력받아 평균점수를 구해야 함
+
+    let kor = prompt('국어 점수를 입력해주세요', '80');
+    kor = Number(kor);
+
+    let eng = prompt('영어 점수를 입력해주세요', '60');
+    eng = Number(eng);
+
+    let math = prompt('수학 점수를 입력해주세요', '90');
+    math = Number(math);
+
+    let avg = (kor + eng + math)/3
+    avg = Number(avg);
+
+    if (avg >= 60) {
+        if (avg >= 96) {
+            console.log('당신의 평균 점수는 ' + avg + '점이고, 등급은 A+입니다.');
+        }
+        else if (avg >= 90) {
+            console.log('당신의 평균 점수는 ' + avg + '점이고, 등급은 A입니다.');
+        }
+        else if (avg >= 86) {
+            console.log('당신의 평균 점수는 ' + avg + '점이고, 등급은 B+입니다.');
+        }
+        else if (avg >= 80) {
+            console.log('당신의 평균 점수는 ' + avg + '점이고, 등급은 B입니다.');
+        }
+        else if (avg >= 75) {
+            console.log('당신의 평균 점수는 ' + avg + '점이고, 등급은 C+입니다.');
+        }
+        else if (avg >= 70) {
+            console.log('당신의 평균 점수는 ' + avg + '점이고, 등급은 C입니다.');
+        }
+        else {
+            console.log('당신의 평균 점수는 ' + avg + '점이고, 등급은 D입니다.');
+        }
+    }
+    else {
+        console.log('당신의 평균 점수는 ' + avg + '점이고, 등급은 F입니다.');
+    }
+
+
+  </script>
+
+</head>
+<body>
+
+</body>
+</html>
